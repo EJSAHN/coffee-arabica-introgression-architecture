@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Local environments
+.env
+.venv/
+env/
+
+# Large public inputs
+*.vcf
+*.vcf.gz
+*.fasta
+*.fa
+*.fna
+*.gff3
+*.tar.gz
+ncbi_dataset/
+
+# Derived outputs
+outputs/*
+!outputs/.gitkeep
+analysis_outputs/
+publication_assets*/
+*.xlsx
+*.json
+
+# System files
+.DS_Store
+Thumbs.db
