@@ -1,6 +1,6 @@
 # coffee-arabica-introgression-architecture
 
-Subgenome-resolved Python workflow for reanalyzing public *Coffea arabica* genomics resources to prioritize introgressed accessions, shared chromosome 4 hotspots, and annotation-supported candidate gene space.
+Subgenome-resolved Python workflow for revisiting the previously reported chromosome 4 introgression signal in public *Coffea arabica* genomic resources and generating accession-level, interval-level, and provisional annotation-supported summaries.
 
 ## Overview
 
