@@ -4,7 +4,7 @@ Subgenome-resolved Python workflow for revisiting the previously reported chromo
 
 ## Overview
 
-This repository contains the scripted analysis workflow used to derive the accession-level, hotspot-level, and annotation-supported evidence tables for a public reanalysis of modern *Coffea arabica* introgression architecture.
+This repository contains the scripted analysis workflow used to derive the accession-level, interval-level, and annotation-supported evidence tables for a public reanalysis of modern *Coffea arabica* introgression architecture.
 
 The workflow operates on public resources and does not include large input datasets. Users should download the required input files from the original repositories listed in `docs/DATA_SOURCES.md`.
 
