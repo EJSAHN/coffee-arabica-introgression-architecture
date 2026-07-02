@@ -69,7 +69,7 @@ python scripts/03_prioritize_introgression_signals.py ^
   --supplementary-output-workbook "<OUTPUT_DIR>/coffee_introgression_part3_supplementary_data_s3.xlsx"
 ```
 
-### 4. Rank accessions and hotspot intervals
+### 4. Rank accessions and interval summaries
 
 ```bash
 python scripts/04_rank_accessions_and_hotspots.py ^
@@ -79,7 +79,7 @@ python scripts/04_rank_accessions_and_hotspots.py ^
   --supplementary-output-workbook "<OUTPUT_DIR>/coffee_introgression_part4_supplementary_data_s4.xlsx"
 ```
 
-### 5. Project prioritized hotspots into annotation space
+### 5. Project prioritized intervals into annotation space
 
 ```bash
 python scripts/05_project_hotspots_to_annotation.py ^
