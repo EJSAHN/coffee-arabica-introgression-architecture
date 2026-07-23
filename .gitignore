@@ -3,12 +3,12 @@ __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 
-# Local environments
+# Environments
 .env
 .venv/
 env/
 
-# Large public inputs
+# Public input data
 *.vcf
 *.vcf.gz
 *.fasta
@@ -17,14 +17,30 @@ env/
 *.gff3
 *.tar.gz
 ncbi_dataset/
+revision_alignment_resources/
 
-# Derived outputs
-outputs/*
-!outputs/.gitkeep
-analysis_outputs/
+# Generated analysis directories
+revision_validation_outputs/
+analysis_exports_*/
 publication_assets*/
+
+# Generated files
 *.xlsx
-*.json
+*.png
+*.pdf
+*.svg
+*.tsv
+*.csv
+*.log
+
+# Versioned configuration and source data
+!config/*.csv
+!outputs/README.md
+!outputs/ANALYSIS_SUMMARY.md
+!outputs/figure_source_data/
+!outputs/figure_source_data/*.csv
+!outputs/figure_source_data/*.md
+!outputs/figure_source_data/*.json
 
 # System files
 .DS_Store
