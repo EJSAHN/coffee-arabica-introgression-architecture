@@ -15,10 +15,10 @@
 
 ## Genome-wide chromosome 4 evidence
 
-- sgC top chromosome mean |ΔAF|: **0.3878**
-- sgE top chromosome mean |ΔAF|: **0.0843**
-- sgC permutation: observed **0.5738**, null 99th **0.3482**, empirical P <= **0.0020**
-- sgE permutation: observed **0.2232**, null 99th **0.1656**, empirical P <= **0.0040**
+- All-eligible sgC top chromosome mean |ΔAF|: **0.3878**; maximum-mean 1-Mb window: **14–15 Mb**, mean **0.5450**.
+- All-eligible sgE top chromosome mean |ΔAF|: **0.0843**; maximum-mean 1-Mb window: **11–12 Mb**, mean **0.2137**.
+- Strict-filter 12,000-SNP baseline permutation, sgC: observed maximum **0.5738** at **14–15 Mb**, null 99th **0.3482**, empirical P = **0.001996**.
+- Strict-filter 12,000-SNP baseline permutation, sgE: observed maximum **0.2232** at **17–18 Mb**, null 99th **0.1656**, empirical P = **0.003992**.
 
 ## Direct alignment validation
 
