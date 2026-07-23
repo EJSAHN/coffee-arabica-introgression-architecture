@@ -1,6 +1,6 @@
 {
   "repository": "coffee-arabica-introgression-architecture",
-  "workflow_version": "2.1.0",
+  "workflow_version": "2.1.1",
   "figure_rendering_included": false,
   "analysis_scripts": [
     "scripts/01_subgenome_filtered_sensitivity.py",
