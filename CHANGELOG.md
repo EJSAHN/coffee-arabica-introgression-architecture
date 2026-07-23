@@ -11,6 +11,7 @@ The current workflow adds the following validation and correction steps:
 - direct sequence alignment of chromosome 4 source intervals to ET-39 pseudomolecules;
 - annotation summaries restricted to direct alignment-supported blocks;
 - relative-path Windows launchers and platform-neutral BLAST discovery; and
-- export of supplementary workbooks and machine-readable figure source data without manuscript figure rendering.
+- export of supplementary workbooks and machine-readable figure source data without manuscript figure rendering; and
+- explicit separation of all-eligible genome-wide scan summaries from label-permutation tests of the strict-filter 12,000-SNP baseline panel.
 
 The original six-script workflow is preserved unchanged under `legacy/submitted_workflow/` for provenance. It should not be used for the corrected analyses.
