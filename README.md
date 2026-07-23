@@ -76,6 +76,8 @@ python scripts/01_subgenome_filtered_sensitivity.py \
   --contig-filter-mode matching_pseudomolecules_only
 ```
 
+The all-eligible genome-wide chromosome/window summaries and the permutation test are distinct outputs. The 500 label permutations are performed on the strict-filter 12,000-SNP baseline panel, while the genome-wide scan summarizes all eligible variants.
+
 ### 2. Direct chromosome 4 alignment
 
 ```bash
