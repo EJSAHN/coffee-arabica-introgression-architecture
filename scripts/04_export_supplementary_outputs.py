@@ -288,35 +288,40 @@ def validation_overview(status: dict, align_summary: pd.DataFrame, perm: pd.Data
         if "empirical_p_value" in row and pd.notna(row["empirical_p_value"]):
             p_value = float(row["empirical_p_value"])
         rows.append({
-            "Validation component": f"Genome-wide permutation, {row['subgenome']}",
+            "Validation component": f"12k-baseline permutation, {row['subgenome']}",
             "Result": "Significant",
-            "Key evidence": f"Observed max = {row['observed_max_window_mean_abs_delta_af']:.4f}; null 99th = {row['null_99th_percentile']:.4f}; empirical P <= {p_value:.4f}",
-            "Interpretation": "Chromosome 4-associated differentiation exceeds the genome-wide permutation null.",
+            "Key evidence": f"Observed max = {row['observed_max_window_mean_abs_delta_af']:.4f}; null 99th = {row['null_99th_percentile']:.4f}; empirical P = {p_value:.6f}",
+            "Interpretation": "The strict-filter 12,000-SNP baseline exceeds its genome-wide label-permutation null.",
         })
     return pd.DataFrame(rows)
 
 def interval_and_permutation_summary(intervals: pd.DataFrame, contigs: pd.DataFrame, windows: pd.DataFrame,
-                                     perm: pd.DataFrame) -> pd.DataFrame:
+                                      perm: pd.DataFrame) -> pd.DataFrame:
+    """Keep all-eligible scan summaries separate from 12k-baseline permutation results."""
     rows = []
     for sub in ["sgC", "sgE"]:
         c = contigs[(contigs["subgenome"] == sub) & (contigs["genomewide_contig_rank"] == 1)].iloc[0]
-        w = windows[(windows["subgenome"] == sub) & (windows["genomewide_window_rank"] == 1)].iloc[0]
+        sub_windows = windows[windows["subgenome"] == sub]
+        w = sub_windows.loc[sub_windows["mean_abs_delta_af"].idxmax()]
         p = perm[perm["subgenome"] == sub].iloc[0]
         i = intervals[(intervals["subgenome"] == sub) & (intervals["condition"] == "filtered_reservoir_12000")].iloc[0]
         rows.append({
             "Subgenome": sub,
-            "Top chromosome / contig": c["contig"],
-            "Chromosome mean |ΔAF|": c["mean_abs_delta_af"],
-            "Markers with |ΔAF| >= 0.90": int(c["n_markers_delta_ge_0_90"]),
-            "Top 1-Mb window start": int(w["window_start"]),
-            "Top 1-Mb window end": int(w["window_end"]),
-            "Observed maximum window mean |ΔAF|": p["observed_max_window_mean_abs_delta_af"],
-            "Permutation 99th percentile": p["null_99th_percentile"],
+            "Top chromosome / contig (all eligible variants)": c["contig"],
+            "Chromosome mean |ΔAF| (all eligible variants)": c["mean_abs_delta_af"],
+            "Markers with |ΔAF| >= 0.90 (all eligible variants)": int(c["n_markers_delta_ge_0_90"]),
+            "All-eligible max-mean 1-Mb window start": int(w["window_start"]),
+            "All-eligible max-mean 1-Mb window end": int(w["window_end"]),
+            "All-eligible max-mean window |ΔAF|": float(w["mean_abs_delta_af"]),
+            "12k-baseline permutation top window start": int(p["observed_top_window_start"]),
+            "12k-baseline permutation top window end": int(p["observed_top_window_end"]),
+            "12k-baseline observed maximum window mean |ΔAF|": float(p["observed_max_window_mean_abs_delta_af"]),
+            "12k-baseline permutation 99th percentile": float(p["null_99th_percentile"]),
             "Valid permutations": int(p["n_valid_permutations"]),
             "Empirical P": float(p["empirical_p_value"]),
-            "Baseline interval start": int(i["interval_start"]),
-            "Baseline interval end": int(i["interval_end"]),
-            "Baseline interval span (bp)": int(i["interval_span_bp"]),
+            "Baseline operational interval start": int(i["interval_start"]),
+            "Baseline operational interval end": int(i["interval_end"]),
+            "Baseline operational interval span (bp)": int(i["interval_span_bp"]),
             "Baseline expected chromosome 4 match": bool(i["expected_chromosome4_match"]),
         })
     return pd.DataFrame(rows)
@@ -353,8 +358,8 @@ def create_supplementary_tables(out_path: Path, status: dict, sensitivity: dict[
          "Condition-level stability metrics across 6k, 12k, 24k, 48k SNP panels, five seeds, and all eligible variants.", sensitivity["PCA_sampling_stability"]),
         ("S9_diploid_sensitivity", "Table S9. Diploid-reference sensitivity of within-Arabica population structure.",
          "Compares full-panel and Arabica-only ordination geometry and cultivated-introgressed centroid separation.", sensitivity["Diploid_reference_sensitivity"]),
-        ("S10_genomewide_validation", "Table S10. Genome-wide chromosome 4 recovery, interval, and permutation summary.",
-         "Summarizes the top chromosome, strongest 1-Mb window, empirical permutation support, and baseline operational interval.", interval_summary),
+        ("S10_genomewide_validation", "Table S10. Genome-wide chromosome 4 recovery, all-eligible scan, and 12k-baseline permutation summary.",
+         "Separates the all-eligible genome-wide scan from the independent 500-permutation test performed on the strict-filter 12,000-SNP baseline panel; baseline operational intervals are also reported.", interval_summary),
     ]
     readme = wb.create_sheet("README")
     readme.append(["Supplementary tables"])
@@ -384,6 +389,11 @@ def create_data_s1(out_path: Path, sensitivity: dict[str, pd.DataFrame], alignme
     # Curated context first.
     all_sheets.append(("Accession_context", "Context for the principal introgressed accessions.",
                        accession_context_table(common_panel, sensitivity["Accession_rankings"], priority_accessions, context_frame)))
+    specific_descriptions = {
+        "Genomewide_window_scan": "All-eligible, strict-subgenome-filtered 1-Mb window summaries across the 11 labelled pseudomolecules.",
+        "Permutation_summary": "Summary of 500 cultivated-versus-introgressed label permutations performed on the strict-filter 12,000-SNP baseline panel.",
+        "Permutation_null": "Null distribution of maximum 1-Mb window means from 500 label permutations of the strict-filter 12,000-SNP baseline panel.",
+    }
     for name in [
         "Common_panel", "Contig_filter_audit", "PCA_conditions", "PCA_scores",
         "PCA_explained_variance", "PCA_sampling_stability", "Diploid_reference_sensitivity",
@@ -391,7 +401,8 @@ def create_data_s1(out_path: Path, sensitivity: dict[str, pd.DataFrame], alignme
         "Top_marker_support", "Genomewide_contig_scan", "Genomewide_window_scan",
         "Permutation_summary", "Permutation_null",
     ]:
-        all_sheets.append((name, f"Derived output from the strict subgenome-filtered sensitivity analysis: {name}.", sensitivity[name]))
+        description = specific_descriptions.get(name, f"Derived output from the strict subgenome-filtered sensitivity analysis: {name}.")
+        all_sheets.append((name, description, sensitivity[name]))
     alignment_sheet_names = {"Corrected_summary": "Alignment_summary"}
     for name in ["Corrected_summary", "best_expected_hits", "alternative_targets", "alignment_blocks", "supported_genes", "candidate_annotations"]:
         output_name = alignment_sheet_names.get(name, name)
