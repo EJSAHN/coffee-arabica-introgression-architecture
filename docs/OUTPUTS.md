@@ -8,8 +8,8 @@ The full sensitivity workflow creates a timestamped directory containing:
 - `sampling_validation_status.json`
 - strict contig-filter audit files
 - PCA scores and explained-variance tables
-- genome-wide chromosome and 1-Mb-window scans
-- permutation null distributions
+- all-eligible genome-wide chromosome and 1-Mb-window scans
+- permutation null distributions for the strict-filter 12,000-SNP baseline panel
 - accession-ranking stability summaries
 
 The public script writes tabular and JSON outputs only; it does not render manuscript figures.
