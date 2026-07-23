@@ -1,0 +1,8 @@
+name: coffee_introgression
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - numpy>=2.0
+  - pandas>=2.2
+  - openpyxl>=3.1

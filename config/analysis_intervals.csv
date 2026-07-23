@@ -1,0 +1,3 @@
+subgenome,source_contig,source_start,source_end,expected_target_seqid,expected_target_label
+sgC,"chr_D_sg_C_(Scaffold_1;HRSCAF_2)",6804956,30148002,NC_092316.1,4c
+sgE,"chr_D_sg_E_(Scaffold_2;HRSCAF_3)",7028545,30145533,NC_092317.1,4e

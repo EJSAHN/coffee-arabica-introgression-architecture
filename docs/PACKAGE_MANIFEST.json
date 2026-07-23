@@ -1,0 +1,46 @@
+{
+  "repository": "coffee-arabica-introgression-architecture",
+  "workflow_version": "2.1.0",
+  "figure_rendering_included": false,
+  "analysis_scripts": [
+    "scripts/01_subgenome_filtered_sensitivity.py",
+    "scripts/02_direct_interval_alignment.py",
+    "scripts/03_finalize_alignment_annotations.py",
+    "scripts/04_export_supplementary_outputs.py",
+    "scripts/analysis_common.py",
+    "scripts/native_stack_preflight.py",
+    "scripts/run_and_tee.py"
+  ],
+  "initial_submission_archive": [
+    "legacy/submitted_workflow/scripts/01_prepare_variant_panel.py",
+    "legacy/submitted_workflow/scripts/02_population_structure.py",
+    "legacy/submitted_workflow/scripts/03_prioritize_introgression_signals.py",
+    "legacy/submitted_workflow/scripts/04_rank_accessions_and_hotspots.py",
+    "legacy/submitted_workflow/scripts/05_project_hotspots_to_annotation.py",
+    "legacy/submitted_workflow/scripts/06_refine_annotation_mapping.py"
+  ],
+  "configuration": [
+    "config/analysis_intervals.csv",
+    "config/prioritized_accessions.csv",
+    "config/accession_context.csv"
+  ],
+  "launchers": [
+    "launch/RUN_FULL_SUBGENOME_VALIDATION.cmd",
+    "launch/RUN_DIRECT_INTERVAL_ALIGNMENT.cmd",
+    "launch/RUN_EXPORT_SUPPLEMENTARY_OUTPUTS.cmd"
+  ],
+  "derived_source_data": "outputs/figure_source_data/",
+  "data_sources": [
+    "Dryad doi:10.5061/dryad.qnk98sfpt",
+    "Zenodo doi:10.5281/zenodo.17250347",
+    "NCBI GCA_036785775.1"
+  ],
+  "documentation": [
+    "README.md",
+    "CHANGELOG.md",
+    "docs/DATA_SOURCES.md",
+    "docs/OUTPUTS.md",
+    "docs/ANALYSIS_NOTES.md",
+    "docs/PROVENANCE.md"
+  ]
+}

@@ -1,0 +1,13 @@
+Accession,Subgenome,Baseline 12k rank,Mean rank across conditions,Minimum rank,Maximum rank,Baseline affinity score,Conditions evaluated,Top-six membership in all conditions
+Híbrido de Timor,sgC,1,1.0,1,1,70.65664053781299,22,True
+Arabusta Pizze,sgC,2,2.0,2,2,66.76440485947688,22,True
+Iapar 59,sgC,3,3.0,3,3,56.16356936486666,22,True
+Oro Azteca,sgC,4,4.0,4,4,46.60416202601637,22,True
+IPR99,sgC,5,5.0,5,5,27.50333068484386,22,True
+Costa Rica 95,sgC,6,6.0,6,6,0.343616740854813,22,True
+Arabusta Pizze,sgE,1,1.0,1,1,44.43245340277724,22,True
+Híbrido de Timor,sgE,2,2.090909090909091,2,3,37.07454359026636,22,True
+Iapar 59,sgE,3,2.909090909090909,2,3,35.95722827321512,22,True
+Oro Azteca,sgE,4,4.0,4,4,24.51612378665357,22,True
+IPR99,sgE,5,5.0,5,5,13.22670648573309,22,True
+Costa Rica 95,sgE,6,6.0,6,6,-13.73921294778543,22,True

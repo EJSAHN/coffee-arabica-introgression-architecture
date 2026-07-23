@@ -1,0 +1,125 @@
+{
+  "workflow": "supplementary-output-export",
+  "figure_rendering_included": false,
+  "source_tables": [
+    {
+      "file": "Figure_1_panel_metadata.csv",
+      "description": "Panel metadata used to label Arabica-only PCA scores.",
+      "rows": 44,
+      "columns": 21,
+      "sha256": "8be399691636f8facaf0326e70bdf1d0197aec23d5e8938d39c819bf315a8159"
+    },
+    {
+      "file": "Figure_1_pca_scores.csv",
+      "description": "PCA scores for full-panel and Arabica-only conditions.",
+      "rows": 3652,
+      "columns": 10,
+      "sha256": "ee89127c47348a2e18810247bd4e1539dc7454bd3936da34d7f1052076fe1b24"
+    },
+    {
+      "file": "Figure_1_pca_variance.csv",
+      "description": "Explained-variance ratios for PCA components.",
+      "rows": 440,
+      "columns": 5,
+      "sha256": "6270d85e282d919f72bd3e62bd24152d063db35397ae851412bc2f90abcfda3d"
+    },
+    {
+      "file": "Figure_2_genomewide_windows.csv",
+      "description": "Genome-wide 1-Mb cultivated-introgressed differentiation windows.",
+      "rows": 812,
+      "columns": 10,
+      "sha256": "c6bdd52eaf5c37c4a2faf7b5f1619afb290d88e441867c9786dc5eae6ff6a603"
+    },
+    {
+      "file": "Figure_2_chromosome_summary.csv",
+      "description": "Chromosome-level differentiation summaries.",
+      "rows": 22,
+      "columns": 8,
+      "sha256": "1868ec81136b1e27f7710c73f1497a792efd8a28a5e09dc9f93e0c5b43b34f9c"
+    },
+    {
+      "file": "Figure_2_permutation_summary.csv",
+      "description": "Observed and permutation-derived genome-wide thresholds.",
+      "rows": 2,
+      "columns": 13,
+      "sha256": "9bb9bb7ce4267433619198bdf50575e1266a39418cdb0c152e2e98b9e25e5cfa"
+    },
+    {
+      "file": "Figure_3_accession_rankings.csv",
+      "description": "Condition-specific accession affinity scores and ranks.",
+      "rows": 3652,
+      "columns": 7,
+      "sha256": "6003e49c1defaa7aa330bdac171ad8d4c5727d16f3e497f176994617fd79c091"
+    },
+    {
+      "file": "Figure_3_accession_rank_stability.csv",
+      "description": "Accession-rank stability across sensitivity conditions.",
+      "rows": 12,
+      "columns": 9,
+      "sha256": "b2cbd6dc3a46dacbeb51b6b5dfe6785f15f2b92f8b2776c0ec2acec16d1f957b"
+    },
+    {
+      "file": "Figure_4_alignment_summary.csv",
+      "description": "Chromosome-level alignment validation summary.",
+      "rows": 2,
+      "columns": 23,
+      "sha256": "44c0c6d1100410f0c87e44cf016493804d86618590b8dcca2e005dce478b516e"
+    },
+    {
+      "file": "Figure_4_alignment_blocks.csv",
+      "description": "Direct alignment-supported target blocks.",
+      "rows": 146,
+      "columns": 6,
+      "sha256": "24058e5c4acae7e4cd77a076d683e0ae44ab22489fbfd4372829dbe6fc836eac"
+    },
+    {
+      "file": "Figure_4_candidate_annotations.csv",
+      "description": "Provisional annotations within alignment-supported blocks.",
+      "rows": 150,
+      "columns": 10,
+      "sha256": "53c3b6b33784c6330b4b5ea7bf6a98676a4fc9bc17016c14c1bf86afcfbd8df0"
+    },
+    {
+      "file": "Figure_S1_sampling_stability.csv",
+      "description": "PCA stability across SNP-panel sizes and seeds.",
+      "rows": 88,
+      "columns": 6,
+      "sha256": "d4cb73c0a44aaff68ce30c1734ecc2a84371e396188c9cc86cc218c39c8ae839"
+    },
+    {
+      "file": "Figure_S2_diploid_reference_sensitivity.csv",
+      "description": "Effect of diploid references on within-Arabica ordination geometry.",
+      "rows": 44,
+      "columns": 9,
+      "sha256": "351e6e1bdc1134feb22752260b55399708b924240975fe4fd5527f08e536d9a5"
+    },
+    {
+      "file": "Figure_S3_permutation_null.csv",
+      "description": "Permutation null distribution for maximum 1-Mb window differentiation.",
+      "rows": 1000,
+      "columns": 3,
+      "sha256": "751179a0115df17d42ddad69fcaf2acf8308dd5b2eae61ee4890bd76c7eaff74"
+    },
+    {
+      "file": "Accession_context.csv",
+      "description": "Curated contextual information for priority accessions.",
+      "rows": 6,
+      "columns": 13,
+      "sha256": "4bdb3970ef496c5de3c1535e230d487c46041dd7fa3799ca81f122359c7cd42e"
+    },
+    {
+      "file": "Alignment_supported_genes.csv",
+      "description": "Gene models overlapping direct alignment-supported blocks.",
+      "rows": 1592,
+      "columns": 9,
+      "sha256": "e75fcbf835cc200f7f9b3c8df7ccbd756a81c567af083c2a5dcf802bfbb62ae9"
+    },
+    {
+      "file": "README.md",
+      "description": "Description of the machine-readable source-data directory.",
+      "rows": null,
+      "columns": null,
+      "sha256": "e0bc6055a0b32b8b6f4063de5695d8f0519778dc6831871115b469cdf23d78f8"
+    }
+  ]
+}

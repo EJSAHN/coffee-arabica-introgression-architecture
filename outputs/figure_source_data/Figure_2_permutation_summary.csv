@@ -1,0 +1,3 @@
+subgenome,n_permutations,n_valid_permutations,n_windows,n_windows_meeting_min_marker_count,min_window_markers,observed_max_window_mean_abs_delta_af,observed_top_contig,observed_top_window_start,observed_top_window_end,null_95th_percentile,null_99th_percentile,empirical_p_value
+sgC,500,500,374,374,5,0.5737847222222223,chr_D_sg_C_(Scaffold_1;HRSCAF_2),14000001,15000000,0.2653358377249201,0.348206110351117,0.001996007984031936
+sgE,500,500,435,432,5,0.2232142857142858,chr_D_sg_E_(Scaffold_2;HRSCAF_3),17000001,18000000,0.1404866946778711,0.1655671768707483,0.003992015968063872
